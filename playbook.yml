@@ -1,0 +1,10 @@
+# TODO: fix tasks to run several times until digital ocean droplet has a valid ip address and is reachable via ssh (port 22)
+---
+- hosts: all
+  tasks:
+    - name: Include role with async and retries
+      include_role:
+        name: main
+      async: 30
+      poll: 0
+      retries: 5
